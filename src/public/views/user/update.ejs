@@ -1,0 +1,46 @@
+<div class="col-md-10 grid-margin stretch-card" style="margin-left: 10%;margin-top: 2%;">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update User</h4>
+            <form class="forms-user" action='/update-user' method='post'>
+                <input type="hidden" name='id' value='<%= user.id %>'>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name" name='name'
+                           value='<%= user.name %>'>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name='email'
+                           value='<%= user.email %>'>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username" name='username'
+                           value='<%= user.username %>'>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name='password'>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status" name='status'>
+                        <option value=0
+                        <% if (user.status === 0) { %> selected
+                                <% } %>
+                        >Inactive
+                        </option>
+                        <option value=1
+                        <% if (user.status === 1) { %> selected
+                                <% } %>
+                        >Active
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a class="btn btn-dark" href='/user'>Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

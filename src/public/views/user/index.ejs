@@ -1,0 +1,53 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class='row'>
+                <div class='col-md-10'>
+                    <h4 class="card-title">Users</h4>
+                </div>
+                <div class='col-md-2 button-padding-bottom'>
+                    <a type="button" class="btn btn-primary btn-icon-text" href='/create-user'>
+                        <i class="mdi mdi-upload btn-icon-prepend"></i> Add User
+                    </a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover" id='dataTable'>
+                    <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>UpdatedAt</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for(var i = 0; i < users.length; i++) { %>
+                        <tr>
+                            <td><%= users[i].username; %></td>
+                            <td><%= users[i].email; %></td>
+                            <td> <%= users[i].name; %></td>
+                            <% if (users[i].status === 0) { %>
+                                <td><label class="badge badge-danger">Inactive</label></td>
+                            <% }else{ %>
+                                <td><label class="badge badge-success">Active</label></td>
+                            <% } %>
+                            <td> <%= users[i].updatedAt; %></td>
+                            <td>
+                                <a class="btn btn-primary btn-xs custom_button"
+                                   href='/update-user/<%= users[i].id; %>'
+                                   title="Edit"><span class="mdi mdi-table-edit"></span></a>
+                                <a class="btn btn-danger btn-xs custom_button"
+                                   href='/delete-user/<%= users[i].id; %>'
+                                   title="Edit"><span class="mdi mdi-bookmark-remove"></span></a>
+                            </td>
+                        </tr>
+                    <% }; %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
